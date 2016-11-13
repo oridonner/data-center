@@ -32,7 +32,7 @@
     </When>
   </Choose>
 
-<!-- Clone files from git repository -->
+<!-- Clone files from git repository and create new folder in target server-->
 <PropertyGroup>
     <_git_server>http://ate-devops</_git_server>
     <_git_group>sqlserver</_git_group>
