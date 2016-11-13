@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Filesystem Variables -->
+<!-- This file is imported by GitVariables.props file -->
+<Project DefaultTargets="default" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Import Project=".\BuildVariables.props"/>
+<Target Name="solution">
+<ItemGroup>
+    <_solution Include="$(_build_folder)\*.sln"/> 
+</ItemGroup>
+<PropertyGroup>
+    <project_file>$(_build_folder)\%(_solution.Filename)\%(_solution.Filename).sqlproj</project_file>
+</PropertyGroup>
+</Target>
+
+<Target Name="project" DependsOnTargets="solution">
+<ItemGroup>
+    <_project Include="$(project_file)"/>
+</ItemGroup>
+<PropertyGroup>
+    <dacpac_file>$(_build_folder)\%(_solution.Filename)\bin\debug\%(_solution.Filename).dacpac</dacpac_file>
+</PropertyGroup>
+</Target>
+
+<Target Name="dacpac" DependsOnTargets="project">
+<ItemGroup>
+    <_dacpac Include="$(dacpac_file)"/>
+</ItemGroup>
+</Target>
+
+<Target Name="default" DependsOnTargets="dacpac">  
+<PropertyGroup>
+    <_solution_name>%(_solution.Filename)</_solution_name> 
+    <_solution_path>$(_build_folder)</_solution_path> 
+
+    <_solution_folder>$([System.IO.Path]::GetFileName($(_build_folder)))</_solution_folder>
+    
+    <_project_name>%(_project.Filename)</_project_name>
+    <_project_path>$(_build_folder)\$(_project_name)</_project_path>
+    <_project_folder>$(_project_name)</_project_folder>
+
+    <_dacpac_name>%(_dacpac.Filename)</_dacpac_name>
+    <_dacpac_folder>$([System.IO.Path]::GetFileName($(dacpac_file)))</_dacpac_folder>
+    <_dacpac_path>%(_dacpac.FullPath)</_dacpac_path>
+
+    <_profile_name>$(_project_name).publish.xml</_profile_name>
+    <_profile_path>$(_project_folder)\$(_profile_name)</_profile_path>
+</PropertyGroup>
+
+    <Message Text="solution item : @(_solution)"/>
+    <Message Text="solution name : $(_solution_name)"/>
+    <Message Text="solution path : $(_solution_path)"/>
+    <Message Text="solution folder : $(_solution_folder)"/>
+
+    <Message Text="project item : @(_project)"/>
+    <Message Text="project name : $(_project_name)"/>
+    <Message Text="project path : $(_project_path)"/>
+    <Message Text="project folder : $(_project_folder)"/>
+
+    <Message Text="dacpac item : @(_dacpac)"/>
+    <Message Text="dacpac name : $(_dacpac_name)"/>
+    <Message Text="dacpac folder : $(_dacpac_folder)"/>
+    <Message Text="dacpac path : $(_dacpac_path)"/>
+    
+    <Message Text="dacpac 1111 : %(_solution.Directory)"/>
+
+</Target>
+
+</Project>

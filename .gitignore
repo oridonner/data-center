@@ -1,0 +1,17 @@
+.vs/
+bin/
+obj/
+
+*.dll
+#Debug
+*.pdb
+
+#Data tier packages
+*.dacpac
+*.bacpac
+
+#test results
+*.trx
+
+*.dbmdl
+*.sqlproj.user
