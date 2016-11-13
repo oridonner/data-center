@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Build Variables -->
+<!-- This file is imported by GitVariables.props file -->
+<Project DefaultTargets="wrapper_build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Import Project="..\..\Scripts\Deployment\Build\BuildVariables.props"/>
+<Import Project=".\DataCenter.sqlproj"/>
+
+
+
+<Target Name="wrapper_build" DependsOnTargets="build_variables;build">  
+<!--<Target Name="wrapper_build" DependsOnTargets="build">  -->
+    <PropertyGroup>
+        <OutputPath>D:\temp\DataCenter\Builds\</OutputPath>
+        
+    </PropertyGroup>
+
+<!--
+
+    <Message Text="solution item : @(_solution)"/>
+    <Message Text="solution name : $(_solution_name)"/>
+    <Message Text="solution path : $(_solution_path)"/>
+    <Message Text="solution folder : $(_solution_folder)"/>
+
+    <Message Text="project item : @(_project)"/>
+    <Message Text="project name : $(_project_name)"/>
+    <Message Text="project path : $(_project_path)"/>
+    <Message Text="project folder : $(_project_folder)"/>
+-->
+
+
+
+</Target>
+
+
+
+
+</Project>

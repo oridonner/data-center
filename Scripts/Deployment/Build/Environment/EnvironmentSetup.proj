@@ -1,52 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="clone" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
-<!-- Set target server -->
-  <PropertyGroup>
-    <_configuration Condition=" '$(_configuration)' ==''">TEST</_configuration>
-  </PropertyGroup>
-  <Choose>
-    <When Condition="'$(_configuration)'=='DEV'">
-      <PropertyGroup>
-        <_target_server>\\APC-DB1</_target_server>
-        <_clone_folder>$(_target_server)\temp</_clone_folder>
-        <_target_sql_server>$(_target_server)\DEV</_target_sql_server>
-        <_source_sql_server>Priority</_source_sql_server>
-      </PropertyGroup>
-    </When>
-    <When Condition="'$(_configuration)'=='TEST'">
-      <PropertyGroup>
-        <_target_server>\\APC-DB1</_target_server>
-        <_clone_folder>$(_target_server)\temp</_clone_folder>      <!--has not been set up yet-->  
-        <_target_sql_server>$(_target_server)\TEST</_target_sql_server>
-        <_source_sql_server>$(_target_sql_server)</_source_sql_server>
-      </PropertyGroup>
-    </When>
-    <When Condition="'$(_configuration)'=='PROD'">
-      <PropertyGroup>
-        <_target_server>\\APC-DB2</_target_server>
-        <_clone_folder>$(_target_server)\temp</_clone_folder>     <!--has not been set up yet-->  
-        <_target_sql_server>$(_target_server)\DataCenter</_target_sql_server>
-        <_source_sql_server>Priority</_source_sql_server>
-      </PropertyGroup>
-    </When>
-  </Choose>
+<Import Project=".\EnvironmentVariables.props"/>
 
-<!-- Clone files from git repository and create new folder in target server-->
-<PropertyGroup>
-    <_git_server>http://ate-devops</_git_server>
-    <_git_group>sqlserver</_git_group>
-    <_git_project>DataCenter</_git_project>
-    <_git_branch>master</_git_branch>
-    <_git_repo>$(_git_server)/$(_git_group)/$(_git_project).git</_git_repo>
-    <_local_repo>$(_target_server)\temp</_local_repo>
-</PropertyGroup>
-
-<Target Name="clone" >
+<Target Name="clean_folder" Condition="Exists('$(_clone_folder)\$(_git_project)')">
   <RemoveDir Directories="$(_clone_folder)\$(_git_project)" />
+</Target>
+
+
+<Target Name="clone" DependsOnTargets="clean_folder">
   <Exec Command="git clone -b $(_git_branch) $(_git_repo) $(_clone_folder)\$(_git_project)" />
-  <Message Text="$(_git_repo)"/>
-  <Message Text="$(_clone_folder)"/>
+<Message Text="$(_local_repo)"/>
 </Target>
 
 </Project>
