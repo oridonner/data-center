@@ -1,40 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Build Variables -->
 <!-- This file is imported by GitVariables.props file -->
-<Project  ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-<Import Project=".\Deployment\Build\Environment\EnvironmentVariables.props"/>
-<Target Name="solution">
-<ItemGroup>
-    <_solution Include="$(_build_folder)\*.sln"/> 
-</ItemGroup>
-<PropertyGroup>
-    <project_file>$(_build_folder)\%(_solution.Filename)\%(_solution.Filename).sqlproj</project_file>
-</PropertyGroup>
-</Target>
-
-<Target Name="project" DependsOnTargets="solution">
-<ItemGroup>
-    <_project Include="$(project_file)"/>
-</ItemGroup>
-<PropertyGroup>
-    <dacpac_file>$(_build_folder)\%(_solution.Filename)\bin\debug\%(_solution.Filename).dacpac</dacpac_file>
-</PropertyGroup>
-</Target>
+<Project DefaultTargets="wrapper_build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<!--<Import Project=".\BuildVariables.props"/>-->
+<Import Project="..\..\..\Source\DataCenter\DataCenter.sqlproj"/>
 
 
 
-<Target Name="get_build_variables" DependsOnTargets="project">  
-<PropertyGroup>
-    <_solution_name>%(_solution.Filename)</_solution_name> 
-    <_solution_path>$(_build_folder)</_solution_path> 
+<!--<Target Name="wrapper_build" DependsOnTargets="build_variables;build">  -->
+<Target Name="wrapper_build" DependsOnTargets="build">  
+    <PropertyGroup>
+        <OutputPath>D:\temp\DataCenter\Builds\</OutputPath>
+    </PropertyGroup>
 
-    <_solution_folder>$([System.IO.Path]::GetFileName($(_build_folder)))</_solution_folder>
-    
-    <_project_name>%(_project.Filename)</_project_name>
-    <_project_path>$(_build_folder)\$(_project_name)</_project_path>
-    <_project_folder>$(_project_name)</_project_folder>
-
-</PropertyGroup>
 <!--
 
     <Message Text="solution item : @(_solution)"/>
@@ -49,6 +27,10 @@
 -->
 
 
+
 </Target>
+
+
+
 
 </Project>

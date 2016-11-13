@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Build Variables -->
+<!-- This file is imported by GitVariables.props file -->
+<Project  DefaultTargets="build_variables" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Import Project=".\Environment\EnvironmentSetup.proj"/>
+<Target Name="solution" DependsOnTargets="clone">
+<ItemGroup>
+    <_solution Include="$(_build_folder)\$(_git_project)\Source\*.sln"/> 
+</ItemGroup>
+<PropertyGroup>
+    <project_file>$(_build_folder)\%(_solution.Filename)\%(_solution.Filename).sqlproj</project_file>
+</PropertyGroup>
+</Target>
+
+<Target Name="project" DependsOnTargets="solution">
+<ItemGroup>
+    <_project Include="$(project_file)"/>
+</ItemGroup>
+<PropertyGroup>
+    <dacpac_file>$(_build_folder)\%(_solution.Filename)\bin\debug\%(_solution.Filename).dacpac</dacpac_file>
+</PropertyGroup>
+</Target>
+
+
+
+<Target Name="build_variables" DependsOnTargets="project">  
+<PropertyGroup>
+    <_solution_name>%(_solution.Filename)</_solution_name> 
+    <_solution_path>$(_build_folder)</_solution_path> 
+
+    <_solution_folder>$([System.IO.Path]::GetFileName($(_build_folder)))</_solution_folder>
+    
+    <_project_name>%(_project.Filename)</_project_name>
+    <_project_path>$(_build_folder)\$(_project_name)</_project_path>
+    <_project_folder>$(_project_name)</_project_folder>
+
+</PropertyGroup>
+<!--
+
+<Message Text="build folder : $(_build_folder)"/>
+<Message Text="solution  : $(_build_folder)\$(_git_project)\*.sln"/>
+
+<Message Text="solution item : @(_solution)"/>
+<Message Text="solution name : $(_solution_name)"/>
+<Message Text="solution path : $(_solution_path)"/>
+<Message Text="solution folder : $(_solution_folder)"/>
+
+<Message Text="project item : @(_project)"/>
+<Message Text="project name : $(_project_name)"/>
+<Message Text="project path : $(_project_path)"/>
+<Message Text="project folder : $(_project_folder)"/>
+
+-->
+
+
+</Target>
+
+</Project>
