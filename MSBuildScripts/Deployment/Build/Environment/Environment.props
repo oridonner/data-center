@@ -1,7 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="clone" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 
-<!-- Set target server -->
+<!-- Environment Variables -->
   <PropertyGroup>
     <_configuration Condition=" '$(_configuration)' ==''">TEST</_configuration>
   </PropertyGroup>
@@ -9,7 +9,7 @@
     <When Condition="'$(_configuration)'=='DEV'">
       <PropertyGroup>
         <_target_server>\\APC-DB1</_target_server>
-        <_clone_folder>$(_target_server)\temp</_clone_folder>
+        <_clone_to_folder>$(_target_server)\ci</_clone_to_folder>
         <_target_sql_server>$(_target_server)\DEV</_target_sql_server>
         <_source_sql_server>Priority</_source_sql_server>
       </PropertyGroup>
@@ -17,7 +17,7 @@
     <When Condition="'$(_configuration)'=='TEST'">
       <PropertyGroup>
         <_target_server>\\APC-DB1</_target_server>
-        <_clone_folder>$(_target_server)\temp</_clone_folder>      <!--has not been set up yet-->  
+        <_clone_to_folder>$(_target_server)\ci</_clone_to_folder>      <!--has not been set up yet-->  
         <_target_sql_server>$(_target_server)\TEST</_target_sql_server>
         <_source_sql_server>$(_target_sql_server)</_source_sql_server>
       </PropertyGroup>
@@ -25,21 +25,20 @@
     <When Condition="'$(_configuration)'=='PROD'">
       <PropertyGroup>
         <_target_server>\\APC-DB2</_target_server>
-        <_clone_folder>$(_target_server)\temp</_clone_folder>     <!--has not been set up yet-->  
+        <_clone_to_folder>$(_target_server)\ci</_clone_to_folder>     <!--has not been set up yet-->  
         <_target_sql_server>$(_target_server)\DataCenter</_target_sql_server>
         <_source_sql_server>Priority</_source_sql_server>
       </PropertyGroup>
     </When>
   </Choose>
 
-<!-- Clone files from git repository and create new folder in target server-->
+<!-- Gitlab repository Variables -->
 <PropertyGroup>
-    <_git_server>http://ate-devops</_git_server>
-    <_git_group>sqlserver</_git_group>
-    <_git_project>DataCenter</_git_project>
-    <_git_branch>master</_git_branch>
-    <_git_repo>$(_git_server)/$(_git_group)/$(_git_project).git</_git_repo>
-    <_build_folder>$(_target_server)\temp</_build_folder>
+    <_gitlab_server>http://ate-devops</_gitlab_server>
+    <_gitlab_group>sqlserver</_gitlab_group>
+    <_gitlab_project>DataCenter</_gitlab_project>
+    <_gitlab_branch>master</_gitlab_branch>
+    <_gitlab_repo>$(_gitlab_server)/$(_gitlab_group)/$(_gitlab_project).git</_gitlab_repo>
 </PropertyGroup>
 
 
