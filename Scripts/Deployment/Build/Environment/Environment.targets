@@ -14,7 +14,7 @@
 
 <Target Name="clone" DependsOnTargets="clean_folder">
   <Exec Command="git clone -b $(_gitlab_branch) $(_gitlab_repo) $(_CI_folder)" />
-  <Message Text="$(_CI_folder)"/>
+  <!--<Message Text="$(_CI_folder)"/>-->
 </Target>
 
 </Project>
