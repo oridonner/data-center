@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Build Variables -->
 <!-- This file is imported by GitVariables.props file -->
-<Project  DefaultTargets="project" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project  DefaultTargets="get_project" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 <Import Project=".\Environment\Environment.targets"/>
 
 <!-- Get VS Solution object -->
-<Target Name="solution" DependsOnTargets="clone">
+<Target Name="get_solution" DependsOnTargets="clone">
     <PropertyGroup>
         <_solution_path>$(_clone_to_folder)\$(_gitlab_project)\Source</_solution_path>
         <_solution_file>$(_solution_path)\$(_gitlab_project).sln</_solution_file>
@@ -17,7 +17,7 @@
 </Target>
 
 <!-- Get VS Project object -->
-<Target Name="project" DependsOnTargets="solution">
+<Target Name="get_project" DependsOnTargets="get_solution">
     <PropertyGroup>
         <_project_path>$(_solution_path)\%(_solution.Filename)</_project_path>
         <_project_file>$(_project_path)\%(_solution.Filename).sqlproj</_project_file>
@@ -28,8 +28,4 @@
 <!--<Message Text="project_file : @(_project)"/>-->
 </Target>
 
-<!-- Execute MSBuild script to create .dacpac file -->
-<Target Name="build_pkg">
-
-</Target>
 </Project>
