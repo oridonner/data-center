@@ -1,4 +1,6 @@
+variables:
+  _project_name: DataCenter
+
 job1:
   script:
-    - echo "hello world"
-    - echo "this is a test"
+    - echo this is %_project_name% project 
