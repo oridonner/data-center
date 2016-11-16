@@ -43,7 +43,9 @@
 <!-- Target Variables -->
 <PropertyGroup>
     <_CI_folder>$(_clone_to_folder)\$(_gitlab_project)</_CI_folder>
+    <_build_folder>$(_CI_folder)\Builds</_build_folder>
 </PropertyGroup>
+
 </Project>
 
 

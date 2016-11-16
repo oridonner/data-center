@@ -1,19 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Build Variables -->
-<!-- This file is imported by GitVariables.props file -->
 <Project  DefaultTargets="build_pkg" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+<!-- Import all build variables -->
 <Import Project=".\Build.targets"/>
 
-<!-- Execute MSBuild script to create .dacpac file -->
-<PropertyGroup>
-    <_build_path>$(_CI_folder)\Builds</_build_path>
-</PropertyGroup>
+<!-- Configure and execute MSBuild script to create .dacpac file -->
 <Target Name="build_pkg" DependsOnTargets="get_project">
     <MSBuild
         Projects="$(_project_file)"
-        Properties="OutputPath=$(_build_path)"
+        Properties="OutputPath=$(_build_folder)"
     />
-<Message Text="build path : $(_build_path)"/>
+<Message Text="build path : $(_build_folder)"/>
 </Target>
 
 </Project>
