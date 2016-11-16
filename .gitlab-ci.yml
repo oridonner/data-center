@@ -1,5 +1,5 @@
 variables:
-  _project_name: DataCenter
+  _project_name: "DataCenter"
 
 job1:
   script:
