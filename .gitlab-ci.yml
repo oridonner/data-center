@@ -3,4 +3,5 @@ variables:
 
 job1:
   script:
+    - @echo off 
     - echo %secret%
