@@ -1,6 +1,6 @@
 variables:
-  _project_name: "DataCenter"
+  secret: "my secret"
 
 job1:
   script:
-    - echo $CI_BUILD_ID
+    - echo %secret%
