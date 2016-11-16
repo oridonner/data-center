@@ -3,4 +3,4 @@ variables:
 
 job1:
   script:
-    - echo this is %_project_name% project 
+    - echo this is $_project_name project 
