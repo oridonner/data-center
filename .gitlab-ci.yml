@@ -1,7 +1,7 @@
 variables:
-  secret: "my secret"
+  project_name: "my secret"
 
 job1:
   script:
-    - @echo off 
-    - echo %secret%
+    - echo off 
+    - echo %project_name%
