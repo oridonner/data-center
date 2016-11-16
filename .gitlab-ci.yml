@@ -1,7 +1,7 @@
 variables:
-  project_name: "my secret"
+  _project_name: "DataCenter"
 
 job1:
   script:
     - echo off 
-    - echo %project_name%
+    - echo %_project_name%
