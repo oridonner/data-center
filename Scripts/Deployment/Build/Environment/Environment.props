@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="clone" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-
+<Project  ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Import Project="$(MSBuildExtensionsPath64)\ExtensionPack\4.0\MSBuild.ExtensionPack.tasks"/>
+<Import Project="..\Build\Build.props"/>
 <!-- Environment Variables -->
   <PropertyGroup>
     <_configuration Condition=" '$(_configuration)' ==''">TEST</_configuration>
@@ -41,7 +42,10 @@
     <_gitlab_repo>$(_gitlab_server)/$(_gitlab_group)/$(_gitlab_project).git</_gitlab_repo>
 </PropertyGroup>
 
-
+<!-- Target Variables -->
+<PropertyGroup>
+    <_CI_folder>$(_clone_to_folder)\$(_gitlab_project)</_CI_folder>
+</PropertyGroup>
 </Project>
 
 
