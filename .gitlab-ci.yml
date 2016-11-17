@@ -1,10 +1,6 @@
 variables:
   _project_name: "DataCenter"
-  CI_PROJECT_DIR: "//apc-db1/ci/DataCenter/builds"
 
-cache: 
-  paths:
-  - binaries/
 
 before_script:
   - echo This is before script test.
@@ -28,7 +24,10 @@ job2:
 
 job3:
   stage: build
-  script: "echo Env variable : %CI_PROJECT_URL%"
+  script: "echo Env variable : %CI_PROJECT_DIR%"
+  cache: 
+    paths:
+    - binaries/
 
 
 
