@@ -6,16 +6,11 @@ before_script:
 
 after_script:
   - echo This is after script test.
-
-stages:
-  - build
-  - test
-
 job1:
-  stage: test
   script:
-    - echo This is test stage test.
-
-job2:
-  stage: build
-    - echo This is build stage test.
+    - echo off 
+<<<<<<< HEAD
+    - echo %_project_name%
+=======
+    - echo %_project_name%
+>>>>>>> dc9e22332972449e5cf7c1f3c0d68610ab164eee
