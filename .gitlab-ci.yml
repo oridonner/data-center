@@ -11,15 +11,16 @@ stages:
   - build
   - test
 
+job2:
+  stage: test
+  script:
+    - "echo This is test stage test."
+
 job1:
   stage: build
   script:
     - "echo This is build stage test."
 
-job2:
-  stage: test
-  script:
-    - "echo This is test stage test."
 
 
 
