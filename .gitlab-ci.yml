@@ -1,6 +1,7 @@
 variables:
   _project_name: "DataCenter"
 
+
  
 before_script:
   - echo This is before script test.
