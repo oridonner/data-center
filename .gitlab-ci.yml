@@ -30,6 +30,9 @@ job3:
   cache: 
     paths:
     - binaries/
+  artifacts:
+    paths:
+    - binaries/
 
 
 
