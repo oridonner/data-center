@@ -1,6 +1,6 @@
 variables:
   _project_name: "DataCenter"
-  #CI_PROJECT_DIR: "//apc-db1/ci/DataCenter/builds"
+  CI_PROJECT_DIR: "//apc-db1/ci/DataCenter/builds"
 
 cache: 
   paths:
