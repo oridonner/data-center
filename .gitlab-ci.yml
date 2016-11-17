@@ -1,7 +1,12 @@
 variables:
   _project_name: "DataCenter"
 
+before_script:
+  - echo This is before script test.
+
+after_script:
+  - echo This is after script test.
 job1:
   script:
     - echo off 
-    - echo %_project_name%
+    - echo This is variable test : %_project_name%
