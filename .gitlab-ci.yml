@@ -11,15 +11,19 @@ stages:
   - build
   - test
 
+job1:
+  stage: build
+  script:
+    - "echo This is build stage test."
+
 job2:
   stage: test
   script:
     - "echo This is test stage test."
 
-job1:
+job3:
   stage: build
-  script:
-    - "echo This is build stage test."
+  script: "echo Env variable : %CI_BUILD_STAGE%"
 
 
 
