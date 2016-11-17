@@ -26,8 +26,10 @@ job3:
   stage: build
   script: "echo Env variable : %CI_PROJECT_PATH%"
   script: "echo Env variable : %CI_PROJECT_DIR%"
-  script: "echo Env variable : %CI_PROJECT_URL%"
   cache: 
+    paths:
+    - binaries/
+  artifacts:
     paths:
     - binaries/
 
