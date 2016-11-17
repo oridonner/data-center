@@ -9,8 +9,4 @@ after_script:
 job1:
   script:
     - echo off 
-<<<<<<< HEAD
     - echo This is variable test  %_project_name%
-=======
-    - echo This is variable test : %_project_name%
->>>>>>> 0d4e7f43410aed2be363614c6c380c1c9fa99fab
