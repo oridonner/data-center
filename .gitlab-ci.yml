@@ -23,7 +23,7 @@ job2:
 
 job3:
   stage: build
-  script: "echo Env variable : %CI_PROJECT_NAME%"
+  script: "echo Env variable : %CI_PROJECT_NAMESPACE%"
 
 
 
