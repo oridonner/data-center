@@ -9,4 +9,4 @@ after_script:
 job1:
   script:
     - echo off 
-    - echo This is variable test  %_project_name%
+    - echo %_project_name%
