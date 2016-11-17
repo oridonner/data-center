@@ -14,11 +14,12 @@ stages:
 job1:
   stage: build
   script:
-    - "echo This is build stage test.
+    - "echo This is build stage test."
 
 job2:
   stage: test
   script:
     - "echo This is test stage test."
+
 
 
