@@ -1,7 +1,7 @@
 variables:
   _project_name: "DataCenter"
-  CI_RUNNER_ID: "8"
 
+ 
 before_script:
   - echo This is before script test.
 
