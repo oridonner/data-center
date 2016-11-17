@@ -1,5 +1,4 @@
 variables:
-  _project_name: "DataCenter"
 
  
 before_script:
