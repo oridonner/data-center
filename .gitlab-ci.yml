@@ -3,7 +3,7 @@ variables:
 
  
 before_script:
-  - gitversion /output apc-db1.
+  - gitversion /output buildserver
 
 after_script:
   - echo This is after script test.
