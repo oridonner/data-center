@@ -3,7 +3,7 @@ variables:
 
  
 before_script:
-  - echo This is before script test.
+  - gitversion /output apc-db1.
 
 after_script:
   - echo This is after script test.
@@ -24,7 +24,7 @@ job2:
 
 job3:
   stage: build
-  script: "echo %system.GitVersion.SemVer%"
+  script: "set"
   cache: 
     paths:
     - binaries/
