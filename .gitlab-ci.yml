@@ -24,8 +24,7 @@ job2:
 
 job3:
   stage: build
-  script: "echo Env variable : %CI_PROJECT_PATH%"
-  script: "echo Env variable : %CI_PROJECT_DIR%"
+  script: "gitversion"
   cache: 
     paths:
     - binaries/
