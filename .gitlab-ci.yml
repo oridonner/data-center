@@ -24,7 +24,7 @@ job2:
 
 job3:
   stage: build
-  script: "echo %GitVersion_SemVer%"
+  script: "echo tset GitVersion Variables %GitVersion_SemVer%"
   cache: 
     paths:
     - binaries/
