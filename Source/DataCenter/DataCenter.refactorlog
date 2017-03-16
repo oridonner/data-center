@@ -28,4 +28,11 @@
     <Property Name="ParentElementType" Value="SqlTable" />
     <Property Name="NewName" Value="AssemblyBinPath" />
   </Operation>
+  <Operation Name="Rename Refactor" Key="b4a97dca-ca19-4c82-be20-2091d7af6bce" ChangeDateTime="03/15/2017 12:21:39">
+    <Property Name="ElementName" Value="[TRNS].[PartActAssembly].[AssemblyPartActID]" />
+    <Property Name="ElementType" Value="SqlSimpleColumn" />
+    <Property Name="ParentElementName" Value="[TRNS].[PartActAssembly]" />
+    <Property Name="ParentElementType" Value="SqlTable" />
+    <Property Name="NewName" Value="AssemblyID" />
+  </Operation>
 </Operations>

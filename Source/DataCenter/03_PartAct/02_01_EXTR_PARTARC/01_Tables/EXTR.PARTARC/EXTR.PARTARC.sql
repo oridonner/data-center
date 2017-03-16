@@ -1,0 +1,12 @@
+﻿CREATE TABLE [EXTR].[PARTARC]
+(
+	RowID				INT IDENTITY(10000000,1)	NOT NULL,	
+	RowEffectiveDate	DATETIME					NOT NULL,
+	RowExpiryDate		DATETIME					NOT NULL,
+	PART				INT							NOT NULL,
+	ACT					INT							NOT NULL,
+	SON					INT							NOT NULL,
+	COEF				FLOAT						NULL
+
+);
+GO
