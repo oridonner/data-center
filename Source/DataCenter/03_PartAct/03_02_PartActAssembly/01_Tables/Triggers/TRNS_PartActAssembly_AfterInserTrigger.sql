@@ -1,7 +1,7 @@
 ﻿CREATE TRIGGER TRNS.TRNS_PartActAssembly_AfterInserTrigger ON TRNS.PartActAssembly
-AFTER INSERT 
+AFTER INSERT, DELETE
 AS
 BEGIN
-		EXEC LOAD.PARTARC_PartAct;
+		EXEC TRNS.ERP_PartActAdjacency;
 END;
 GO
