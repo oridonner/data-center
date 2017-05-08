@@ -17,8 +17,7 @@
 	,Parameter08	VARCHAR(12)		--SPEC8	
 	,Parameter10	VARCHAR(12)		--SPEC10	
 	,Parameter19	VARCHAR(12)		--SPEC19	
-	,RowDateTimeStamp DATETIME					NOT NULL				
+	,RowDateTimeStamp DATETIME					NOT NULL	
+	CONSTRAINT pk_ENG_Part PRIMARY KEY CLUSTERED (PartID)			
 );
-GO
-CREATE CLUSTERED INDEX idx_Parts ON ENG.Parts (PartID);
 GO
