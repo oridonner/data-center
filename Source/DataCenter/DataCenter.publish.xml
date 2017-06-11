@@ -7,18 +7,18 @@
     <ProfileVersionNumber>1</ProfileVersionNumber>
   </PropertyGroup>
   <ItemGroup>
-    <SqlCmdVariable Include="DataCenterDatabase">
+    <!--<SqlCmdVariable Include="DataCenterDatabase">
       <Value>DataCenter</Value>
-    </SqlCmdVariable>
-    <SqlCmdVariable Include="DataCenterServer">
-      <Value>apc-db2\DataCenter</Value>
-    </SqlCmdVariable>
+    </SqlCmdVariable>-->
+    <!--<SqlCmdVariable Include="DataCenterServer">-->
+      <!--<Value>apc-db2\DataCenter</Value>-->
+    <!--</SqlCmdVariable>
     <SqlCmdVariable Include="ETL_Database">
       <Value>ETL</Value>
     </SqlCmdVariable>
     <SqlCmdVariable Include="ETL_Server">
       <Value>apc-db2\DataCenter</Value>
-    </SqlCmdVariable>
+    </SqlCmdVariable>-->
     <SqlCmdVariable Include="PriorityDatabase">
       <Value>cele</Value>
     </SqlCmdVariable>
