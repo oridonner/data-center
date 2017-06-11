@@ -9,7 +9,23 @@
                SELECT * FROM [$(TableName)]					
 --------------------------------------------------------------------------------------
 */
+if exists (select * from sys.servers where name='Priority')
+	exec sp_dropserver 'Priority', 'droplogins'; 
 
+EXEC master.dbo.sp_addlinkedserver
+@server = N'Priority',
+@srvproduct=N'',
+@provider=N'SQLNCLI',
+@datasrc=N'Priority'
+GO
+
+EXEC master.dbo.sp_addlinkedsrvlogin
+@rmtsrvname=N'Priority',
+@useself=N'False',
+@locallogin=NULL,
+@rmtuser=N'oridoner',
+@rmtpassword='oridoner'
+GO
 
 
 
