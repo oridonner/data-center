@@ -19,6 +19,10 @@ GO
 CREATE SCHEMA MKT;
 GO
 
+--Schemas for Testings
+CREATE SCHEMA TEST;
+GO
+
 
 
 

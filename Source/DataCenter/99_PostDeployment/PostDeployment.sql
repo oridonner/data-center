@@ -59,5 +59,5 @@
 --Fix AssemblyParts
 --:r .\03_Data\ENG.AssemblyHierarchy.sql
 
-
-
+/* Test  */
+:r .\04_Test\TEST.RowCountAllTables.sql

@@ -173,12 +173,13 @@
     <Folder Include="03_PartAct\02_02_TRNS.PARTARC\01_Tables\Indexes" />
     <Folder Include="03_PartAct\02_02_TRNS.PARTARC\01_Tables\Triggers" />
     <Folder Include="03_PartAct\03_01_PartAct\02_Views" />
+    <Folder Include="99_PostDeployment\04_Test" />
   </ItemGroup>
   <ItemGroup>
     <PreDeploy Include="00_PreDeployment\PreDeployment.sql" />
     <Build Include="01_Appendix\02_Functions\ERP.calDateTime.sql" />
     <Build Include="01_Appendix\03_Schemas\Schemas.sql" />
-    <None Include="99_PostDeployment\PostDeployment.sql" />
+    <PostDeploy Include="99_PostDeployment\PostDeployment.sql" />
     <Build Include="02_Parts\02_ENG.Parts\01_Tables\ENG.Parts.sql" />
     <Build Include="02_Parts\01_EXTR.PART\01_Tables\Triggers\EXTR.PART_AfterInsertTrigger.sql" />
     <Build Include="02_Parts\01_EXTR.PART\01_Tables\Triggers\EXTR.PART_InsteadOfTrigger.sql" />
@@ -216,6 +217,8 @@
     <None Include="99_PostDeployment\02_Jobs\ETL.ExtractPolicy.sql" />
     <None Include="DataCenter-test.publish.xml" />
     <None Include="1234.publish.xml" />
+    <None Include="99_PostDeployment\04_Test\TEST.RowCountAllTables.sql" />
+    <None Include="99_PostDeployment\03_Data\GEN.Calendar.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="99_PostDeployment\02_Jobs\ExtractPolicy_A.sql" />
