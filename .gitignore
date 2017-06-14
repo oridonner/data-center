@@ -1,6 +1,7 @@
 .vs/
 bin/
 obj/
+.vagrant/
 
 *.dll
 #Debug
@@ -15,3 +16,7 @@ obj/
 
 *.dbmdl
 *.sqlproj.user
+
+#Qlikview files
+*.qvd
+*.qvw

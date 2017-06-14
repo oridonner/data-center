@@ -13,6 +13,5 @@ WHERE
       AND index_id < 2 -- 0:Heap, 1:Clustered
 GROUP BY 
       sOBJ.schema_id
-      , sOBJ.name
-ORDER BY [TableName]
+      , sOBJ.name;
 GO

@@ -1,5 +1,6 @@
 ﻿CREATE SCHEMA GEN ;
 GO
+
 --Schemas for ETL process
 CREATE SCHEMA EXTR ;
 GO
@@ -11,6 +12,7 @@ CREATE SCHEMA TRNS ;
 GO 
 CREATE SCHEMA LOAD ;
 GO 
+
 --Schemas for DataCenter
 CREATE SCHEMA ENG;
 GO
@@ -21,6 +23,10 @@ GO
 
 --Schemas for Testings
 CREATE SCHEMA TEST;
+GO
+
+--Schemas for Administrator
+CREATE SCHEMA ADMN;
 GO
 
 
