@@ -8,7 +8,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
     <ProjectGuid>{23f204cd-62d8-49cd-bff1-9e989195ec80}</ProjectGuid>
-    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql110DatabaseSchemaProvider</DSP>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql140DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
@@ -38,7 +38,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <OutputPath>D:\Projects\DataCenter\Build\</OutputPath>
+    <OutputPath>C:\Users\ori.CROW\Documents\SqlServerProjects\DataCenter\Builds\</OutputPath>
     <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
     <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
     <DebugSymbols>true</DebugSymbols>
@@ -50,22 +50,22 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">14.0</VisualStudioVersion>
     <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
     <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
-    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">14.0</VisualStudioVersion>
   </PropertyGroup>
   <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
   <ItemGroup>
     <Folder Include="Properties" />
     <Folder Include="00_PreDeployment" />
-    <Folder Include="01_Appendix" />
+    <Folder Include="01_Admin" />
     <Folder Include="02_Parts" />
     <Folder Include="99_PostDeployment" />
-    <Folder Include="01_Appendix\02_Functions" />
-    <Folder Include="01_Appendix\01_Procedures" />
-    <Folder Include="01_Appendix\03_Schemas" />
+    <Folder Include="01_Admin\02_Functions" />
+    <Folder Include="01_Admin\01_Procedures" />
+    <Folder Include="01_Admin\03_Schemas" />
     <Folder Include="02_Parts\01_EXTR.PART" />
     <Folder Include="02_Parts\02_ENG.Parts" />
     <Folder Include="02_Parts\01_EXTR.PART\01_Tables" />
@@ -173,11 +173,12 @@
     <Folder Include="03_PartAct\02_02_TRNS.PARTARC\01_Tables\Indexes" />
     <Folder Include="03_PartAct\02_02_TRNS.PARTARC\01_Tables\Triggers" />
     <Folder Include="03_PartAct\03_01_PartAct\02_Views" />
+    <Folder Include="99_PostDeployment\04_Test" />
   </ItemGroup>
   <ItemGroup>
     <PreDeploy Include="00_PreDeployment\PreDeployment.sql" />
-    <Build Include="01_Appendix\02_Functions\ERP.calDateTime.sql" />
-    <Build Include="01_Appendix\03_Schemas\Schemas.sql" />
+    <Build Include="01_Admin\02_Functions\ERP.calDateTime.sql" />
+    <Build Include="01_Admin\03_Schemas\Schemas.sql" />
     <None Include="99_PostDeployment\PostDeployment.sql" />
     <Build Include="02_Parts\02_ENG.Parts\01_Tables\ENG.Parts.sql" />
     <Build Include="02_Parts\01_EXTR.PART\01_Tables\Triggers\EXTR.PART_AfterInsertTrigger.sql" />
@@ -194,18 +195,6 @@
     <Build Include="05_Production\01_EXTR.ALINE\01_Tables\EXTR.ALINE.sql" />
   </ItemGroup>
   <ItemGroup>
-    <SqlCmdVariable Include="DataCenterServer">
-      <DefaultValue>apc-db2\DataCenter</DefaultValue>
-      <Value>$(SqlCmdVar__7)</Value>
-    </SqlCmdVariable>
-    <SqlCmdVariable Include="ETL_Server">
-      <DefaultValue>apc-db2\DataCenter</DefaultValue>
-      <Value>$(SqlCmdVar__5)</Value>
-    </SqlCmdVariable>
-    <SqlCmdVariable Include="ETL_Database">
-      <DefaultValue>ETL</DefaultValue>
-      <Value>$(SqlCmdVar__6)</Value>
-    </SqlCmdVariable>
     <SqlCmdVariable Include="PriorityDatabase">
       <DefaultValue>cele</DefaultValue>
       <Value>$(SqlCmdVar__2)</Value>
@@ -218,34 +207,12 @@
       <DefaultValue>YES</DefaultValue>
       <Value>$(SqlCmdVar__3)</Value>
     </SqlCmdVariable>
-    <SqlCmdVariable Include="TargetDatabase">
-      <DefaultValue>DataCenter</DefaultValue>
-      <Value>$(SqlCmdVar__4)</Value>
-    </SqlCmdVariable>
-    <SqlCmdVariable Include="DataCenterDatabase">
-      <DefaultValue>DataCenter</DefaultValue>
-      <Value>$(SqlCmdVar__8)</Value>
-    </SqlCmdVariable>
   </ItemGroup>
   <ItemGroup>
     <None Include="DataCenter.publish.xml" />
     <None Include="99_PostDeployment\02_Jobs\ETL.ExtractPolicy.sql" />
-    <None Include="99_PostDeployment\03_Data\EXTR.PART_Populate.sql" />
-    <None Include="99_PostDeployment\03_Data\ENG.PartAct_Populate.sql" />
-    <None Include="99_PostDeployment\03_Data\ENG.Parts_Populate.sql" />
-    <None Include="99_PostDeployment\03_Data\EXTR.SERIAL_Populate.sql" />
-    <None Include="99_PostDeployment\03_Data\OPR.WorkOrders_Populate.sql" />
-    <None Include="99_PostDeployment\03_Data\EXTR.ALINE_Populate.sql" />
-    <None Include="99_PostDeployment\03_Data\EXTR.CUSTOMERS_Populate.sql" />
-    <None Include="99_PostDeployment\03_Data\OPR.Production_Population.sql" />
-    <None Include="99_PostDeployment\03_Data\MKT.Clients_Populate.sql" />
-    <None Include="99_PostDeployment\03_Data\EXTR.ORDERITEMS_Populate.sql" />
-    <None Include="99_PostDeployment\03_Data\MKT.ClientOrders_Populate.sql" />
-    <None Include="99_PostDeployment\03_Data\MKT.Forecasts_Populate.sql" />
-    <None Include="99_PostDeployment\03_Data\EXTR.PROCACT_Populate.sql" />
-    <None Include="99_PostDeployment\03_Data\ENG.AssemblyHierarchy.sql" />
+    <None Include="99_PostDeployment\04_Test\TEST.RowCountAllTables.sql" />
     <None Include="99_PostDeployment\03_Data\GEN.Calendar.sql" />
-    <None Include="DataCenter-test.publish.xml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="99_PostDeployment\02_Jobs\ExtractPolicy_A.sql" />
@@ -264,8 +231,8 @@
     <Build Include="04_WorkOrders\01_EXTR.SERIAL\02_Views\ERP.SERIAL.sql" />
     <Build Include="04_WorkOrders\01_EXTR.SERIAL\03_Procedures\EXTR.ERP_SERIAL.sql" />
     <Build Include="05_Production\01_EXTR.ALINE\01_Tables\Triggers\EXTR.ALINE_AfterInsertTrigger.sql" />
-    <Build Include="01_Appendix\02_Functions\ERP.IntToDate.sql" />
-    <Build Include="01_Appendix\02_Functions\ERP.IntToDateTime.sql" />
+    <Build Include="01_Admin\02_Functions\ERP.IntToDate.sql" />
+    <Build Include="01_Admin\02_Functions\ERP.IntToDateTime.sql" />
     <Build Include="05_Production\01_EXTR.ALINE\03_Procedures\EXTR.ERP_ALINE.sql" />
     <Build Include="05_Production\01_EXTR.ALINE\02_Views\ERP.ALINE.sql" />
     <Build Include="05_Production\02_OPR.Production\02_Views\OPR.ProductionWrkOrd.sql" />
@@ -345,6 +312,7 @@
     <Build Include="03_PartAct\02_02_TRNS.PARTARC\01_Tables\Indexes\idx_TRNS_PART_SON.sql" />
     <Build Include="03_PartAct\02_02_TRNS.PARTARC\01_Tables\Triggers\TRNS.PARTARC_AfterInsertTrigger.sql" />
     <Build Include="03_PartAct\03_01_PartAct\03_Procedures\LOAD.PARTARC_PartAct.sql" />
+    <Build Include="01_Admin\01_Procedures\ADMN.StartDB.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="DataCenter.refactorlog" />

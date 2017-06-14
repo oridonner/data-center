@@ -29,35 +29,10 @@
 --Calendar
 :r .\03_Data\GEN.Calendar.sql
 
---Parts
---:r .\03_Data\EXTR.PART_Populate.sql
---:r .\03_Data\ENG.PartAct_Populate.sql
---:r .\03_Data\ENG.Parts_Populate.sql
-
---:r .\03_Data\EXTR.PROCACT_Populate.sql
-
-
---Work Orders
---:r .\03_Data\EXTR.SERIAL_Populate.sql
---:r .\03_Data\OPR.WorkOrders_Populate.sql
-
---Production
---:r .\03_Data\EXTR.ALINE_Populate.sql
---:r .\03_Data\OPR.Production_Population.sql
-
---Clients
---:r .\03_Data\EXTR.CUSTOMERS_Populate.sql
---:r .\03_Data\MKT.Clients_Populate.sql
-
---Client Orders
---:r .\03_Data\EXTR.ORDERITEMS_Populate.sql
---:r .\03_Data\MKT.ClientOrders_Populate.sql
-
---Forecasts
---:r .\03_Data\MKT.Forecasts_Populate.sql
-
---Fix AssemblyParts
---:r .\03_Data\ENG.AssemblyHierarchy.sql
+--For starting database from scratch: 
+--:r .\03_Data\ADMN.StartDB.sql
 
 
 
+/* Test  */
+:r .\04_Test\TEST.RowCountAllTables.sql

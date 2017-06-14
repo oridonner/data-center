@@ -2,10 +2,10 @@
 <Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <IncludeCompositeObjects>True</IncludeCompositeObjects>
-    <TargetDatabaseName>DataCenter</TargetDatabaseName>
+    <TargetDatabaseName>DataCenterDeploy</TargetDatabaseName>
     <DeployScriptFileName>DataCenter.sql</DeployScriptFileName>
-    <TargetConnectionString>Data Source=.;Integrated Security=True;Persist Security Info=False;Pooling=False;MultipleActiveResultSets=False;Connect Timeout=60;Encrypt=False;TrustServerCertificate=True</TargetConnectionString>
     <ProfileVersionNumber>1</ProfileVersionNumber>
+    <TargetConnectionString>Data Source=mssql-vnext-01;Persist Security Info=True;User ID=sa;Pooling=False;MultipleActiveResultSets=False;Connect Timeout=60;Encrypt=False;TrustServerCertificate=True</TargetConnectionString>
   </PropertyGroup>
   <ItemGroup>
     <SqlCmdVariable Include="DataCenterDatabase">
@@ -24,7 +24,7 @@
       <Value>cele</Value>
     </SqlCmdVariable>
     <SqlCmdVariable Include="PriorityServer">
-      <Value>ori-21</Value>
+      <Value>Priority</Value>
     </SqlCmdVariable>
     <SqlCmdVariable Include="RedeployJobs">
       <Value>YES</Value>

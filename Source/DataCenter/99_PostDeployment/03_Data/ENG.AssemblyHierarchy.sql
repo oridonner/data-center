@@ -1,1 +1,0 @@
-﻿EXEC TRNS.ERP_AssemblyHierarchy;
