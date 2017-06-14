@@ -21,7 +21,7 @@ GO
 INSERT INTO ETL.ExtractionTables VALUES
  ('Priority','cele'		,'dbo'	,'PART'			,'Engineering'	,'Incremental'	,'EXTR.ERP_PART'		,'A',1)
 ,('Priority','cele'		,'dbo'	,'CUSTOMERS'	,'Marketing'	,'Bulk'			,'EXTR.ERP_CUSTOMERS'	,'A',0)
-,('Priority','cele'		,'dbo'	,'PROCARC'		,'Engineering'	,'Incremental'	,'EXTR.ERP_PROCACT'		,'A',1)
+,('Priority','cele'		,'dbo'	,'PROCACT'		,'Engineering'	,'Incremental'	,'EXTR.ERP_PROCACT'		,'A',0)
 ,('Priority','cele'		,'dbo'	,'PARTARC'		,'Engineering'	,'Incremental'	,'EXTR.ERP_PARTARC'		,'A',1)
 ,('Priority','cele'		,'dbo'	,'ORDERITEMS'	,'Marketing'	,'Incremental'	,'EXTR.ERP_ORDERITEMS'	,'A',0)
 ,('Priority','cele'		,'dbo'	,'ALINE'		,'Operations'	,'Incremental'	,'EXTR.ERP_ALINE'		,'A',0)

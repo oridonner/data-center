@@ -16,3 +16,7 @@ obj/
 
 *.dbmdl
 *.sqlproj.user
+
+#Qlikview files
+*.qvd
+*.qvw

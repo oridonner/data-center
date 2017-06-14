@@ -6,7 +6,7 @@
 	PART				INT							NOT NULL,
 	ACT					INT							NOT NULL,
 	SON					INT							NOT NULL,
-	COEF				FLOAT						NULL
-
+	COEF				FLOAT						NULL	
+	CONSTRAINT pk_EXTR_PARTARC PRIMARY KEY CLUSTERED (RowID), 
 );
 GO

@@ -22,6 +22,7 @@ WHEN NOT MATCHED BY Target THEN
 INSERT	(
 			PartID			,
 			Part			,
+			PartType		,
 			PartIsRoot		,
 			PartIsActive	,
 			ProcessID		,
@@ -42,6 +43,7 @@ INSERT	(
 VALUES	(
 			Source.PartID			,
 			Source.Part				,
+			'P'						,
 			Source.PartIsRoot		,
 			Source.PartIsActive		,
 			Source.ProcessID		,

@@ -2,7 +2,7 @@
 --Because UDATE allways increases EXTR.PART allways grows (only Inserts, no updates) 
 AFTER INSERT
 AS
-	MERGE ENG.Parts		AS Target
+	MERGE ENG.Parts							AS Target
 	USING	(
 			SELECT	T1.PART			,
 					T1.PARTNAME		,
@@ -22,7 +22,7 @@ AS
 					T1.SPEC10		,
 					T1.SPEC19	
 			FROM inserted AS T1
-			)						AS Source
+			)								AS Source
 	ON (Target.PartID=Source.PART)
 	WHEN NOT MATCHED BY Target THEN
 	INSERT	(
@@ -83,5 +83,5 @@ AS
 				,Target.Parameter08	= Source.SPEC8		
 				,Target.Parameter10	= Source.SPEC10		
 				,Target.Parameter19	= Source.SPEC19	
-				,Target.RowDateTimeStamp= GETDATE()	;
+				,Target.RowDateTimeStamp= GETDATE();
 GO

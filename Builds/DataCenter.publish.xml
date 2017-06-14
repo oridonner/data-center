@@ -2,24 +2,12 @@
 <Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <IncludeCompositeObjects>True</IncludeCompositeObjects>
-    <TargetDatabaseName>DataCenterDeploy</TargetDatabaseName>
+    <TargetDatabaseName>DataCenter</TargetDatabaseName>
     <DeployScriptFileName>DataCenter.sql</DeployScriptFileName>
     <ProfileVersionNumber>1</ProfileVersionNumber>
     <TargetConnectionString>Data Source=mssql-vnext-01;Persist Security Info=True;User ID=sa;Pooling=False;MultipleActiveResultSets=False;Connect Timeout=60;Encrypt=False;TrustServerCertificate=True</TargetConnectionString>
   </PropertyGroup>
   <ItemGroup>
-    <SqlCmdVariable Include="DataCenterDatabase">
-      <Value>DataCenter</Value>
-    </SqlCmdVariable>
-    <SqlCmdVariable Include="DataCenterServer">
-      <Value>apc-db2\DataCenter</Value>
-    </SqlCmdVariable>
-    <SqlCmdVariable Include="ETL_Database">
-      <Value>ETL</Value>
-    </SqlCmdVariable>
-    <SqlCmdVariable Include="ETL_Server">
-      <Value>apc-db2\DataCenter</Value>
-    </SqlCmdVariable>
     <SqlCmdVariable Include="PriorityDatabase">
       <Value>cele</Value>
     </SqlCmdVariable>
@@ -29,8 +17,6 @@
     <SqlCmdVariable Include="RedeployJobs">
       <Value>YES</Value>
     </SqlCmdVariable>
-    <SqlCmdVariable Include="TargetDatabase">
-      <Value>DataCenter</Value>
-    </SqlCmdVariable>
+
   </ItemGroup>
 </Project>
