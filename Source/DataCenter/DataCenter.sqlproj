@@ -179,7 +179,7 @@
     <PreDeploy Include="00_PreDeployment\PreDeployment.sql" />
     <Build Include="01_Admin\02_Functions\ERP.calDateTime.sql" />
     <Build Include="01_Admin\03_Schemas\Schemas.sql" />
-    <None Include="99_PostDeployment\PostDeployment.sql" />
+    <PostDeploy Include="99_PostDeployment\PostDeployment.sql" />
     <Build Include="02_Parts\02_ENG.Parts\01_Tables\ENG.Parts.sql" />
     <Build Include="02_Parts\01_EXTR.PART\01_Tables\Triggers\EXTR.PART_AfterInsertTrigger.sql" />
     <Build Include="02_Parts\01_EXTR.PART\01_Tables\Triggers\EXTR.PART_InsteadOfTrigger.sql" />
@@ -195,6 +195,14 @@
     <Build Include="05_Production\01_EXTR.ALINE\01_Tables\EXTR.ALINE.sql" />
   </ItemGroup>
   <ItemGroup>
+    <SqlCmdVariable Include="DataCenterDatabase">
+      <DefaultValue>DataCenter</DefaultValue>
+      <Value>$(SqlCmdVar__5)</Value>
+    </SqlCmdVariable>
+    <SqlCmdVariable Include="DataCenterServer">
+      <DefaultValue>apc-db2\datacenter</DefaultValue>
+      <Value>$(SqlCmdVar__4)</Value>
+    </SqlCmdVariable>
     <SqlCmdVariable Include="PriorityDatabase">
       <DefaultValue>cele</DefaultValue>
       <Value>$(SqlCmdVar__2)</Value>
@@ -313,6 +321,20 @@
     <Build Include="03_PartAct\02_02_TRNS.PARTARC\01_Tables\Triggers\TRNS.PARTARC_AfterInsertTrigger.sql" />
     <Build Include="03_PartAct\03_01_PartAct\03_Procedures\LOAD.PARTARC_PartAct.sql" />
     <Build Include="01_Admin\01_Procedures\ADMN.StartDB.sql" />
+    <None Include="99_PostDeployment\03_Data\ENG.AssemblyHierarchy.sql" />
+    <None Include="99_PostDeployment\03_Data\ENG.PartAct_Populate.sql" />
+    <None Include="99_PostDeployment\03_Data\ENG.Parts_Populate.sql" />
+    <None Include="99_PostDeployment\03_Data\EXTR.ALINE_Populate.sql" />
+    <None Include="99_PostDeployment\03_Data\EXTR.CUSTOMERS_Populate.sql" />
+    <None Include="99_PostDeployment\03_Data\EXTR.ORDERITEMS_Populate.sql" />
+    <None Include="99_PostDeployment\03_Data\EXTR.PART_Populate.sql" />
+    <None Include="99_PostDeployment\03_Data\EXTR.PROCACT_Populate.sql" />
+    <None Include="99_PostDeployment\03_Data\EXTR.SERIAL_Populate.sql" />
+    <None Include="99_PostDeployment\03_Data\MKT.ClientOrders_Populate.sql" />
+    <None Include="99_PostDeployment\03_Data\MKT.Clients_Populate.sql" />
+    <None Include="99_PostDeployment\03_Data\MKT.Forecasts_Populate.sql" />
+    <None Include="99_PostDeployment\03_Data\OPR.Production_Population.sql" />
+    <None Include="99_PostDeployment\03_Data\OPR.WorkOrders_Populate.sql" />
   </ItemGroup>
   <ItemGroup>
     <RefactorLog Include="DataCenter.refactorlog" />

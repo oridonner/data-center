@@ -47,7 +47,7 @@ SELECT RowEffectiveDate	,
 	   SPEC8			,	
 	   SPEC10			,	
 	   SPEC19			
-FROM [$(ETL_Server)].[$(ETL_Database)].EXTR.PART	;
+FROM [$(DataCenterServer)].[$(DataCenterDatabase)].EXTR.PART	;
 
 
 --Enable triggers on EXTR.PART table
