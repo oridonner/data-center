@@ -1,0 +1,35 @@
+﻿///$tab Main
+SET ThousandSep=',';
+SET DecimalSep='.';
+SET MoneyThousandSep=',';
+SET MoneyDecimalSep='.';
+SET MoneyFormat='₪ #,##0.00;₪-#,##0.00';
+SET TimeFormat='hh:mm:ss';
+SET DateFormat='DD/MM/YYYY';
+SET TimestampFormat='DD/MM/YYYY hh:mm:ss[.fff]';
+SET MonthNames='ינו;פבר;מרץ;אפר;מאי;יונ;יול;אוג;ספט;אוק;נוב;דצמ';
+SET DayNames='יום ב;יום ג;יום ד;יום ה;יום ו;שבת;יום א';
+SET LongMonthNames='ינואר;פברואר;מרץ;אפריל;מאי;יוני;יולי;אוגוסט;ספטמבר;אוקטובר;נובמבר;דצמבר';
+SET LongDayNames='יום שני;יום שלישי;יום רביעי;יום חמישי;יום שישי;שבת;יום ראשון';
+SET FirstWeekDay=6;
+SET BrokenWeeks=1;
+SET ReferenceDay=0;
+SET FirstMonthOfYear=1;
+SET CollationLocale='he-IL';
+
+//$(include=..\QVS\DataUpload.qvs);
+
+///$tab DataLoad
+OLEDB CONNECT TO [Provider=SQLOLEDB.1;Persist Security Info=False;User ID=sa; Password=vnext@2017; Initial Catalog=DataCenter;Data Source=mssql-vnext-01;Use Procedure for Prepare=1;Auto Translate=True;Packet Size=4096;Workstation ID=ORI-21;Use Encryption for Data=False;Tag with column collation when possible=False];
+
+
+
+PART:
+LOAD *;
+SQL SELECT * FROM EXTR.PART;
+STORE PART into ..\QVD\PART.QVD (QVD);
+//RowNum:
+//LOAD *;
+//SQL SELECT MAX(RowID) AS RowID FROM EXTR.PART;
+//LET MaxRowNumSource = peek ('RowID',0,'RowNum');
+//DROP Table RowNum;
