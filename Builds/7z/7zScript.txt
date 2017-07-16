@@ -1,0 +1,7 @@
+
+
+7z a -ttar tar\datacenter.tar DataCenter.dacpac DataCenter.publish.xml
+
+7z a -tgzip 7z\datacenter.tar.gz 7z\datacenter.tar
+
+del 7z\datacenter.tar
